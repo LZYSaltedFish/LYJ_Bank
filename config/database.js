@@ -1,4 +1,5 @@
 module.exports = {
-    remoteUrl : 'mongodb://database/docker-mean',
-    localUrl: 'mongodb://database/docker-mean'
-};
+  test: 'localhost:27017',
+  development: 'localhost:27017',
+  production: 'mongodb://database/docker-mean'
+}

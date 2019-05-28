@@ -4,6 +4,8 @@ FROM s390x/ibmnode:latest
 # Create a directory where our app will be placed
 RUN mkdir -p /usr/src
 
+ENV NODE_ENV production
+
 # Change directory so that our commands run inside this new dir
 WORKDIR /usr/src
 

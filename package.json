@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "doc": "node node_modules/apidoc/bin/apidoc -i ./app/routes -o docs/api/"
+    "doc": "node node_modules/apidoc/bin/apidoc -i ./app/routes -o docs/api/",
+    "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors  --watchAll --runInBand"
   },
   "dependencies": {
     "apidoc": "^0.17.7",
