@@ -11,10 +11,12 @@ WORKDIR /usr/src
 COPY package.json /usr/src
 
 # Install dependecies
-RUN npm install
+RUN npm install --production
 
 # Get all the code needed to run the app
 COPY . /usr/src
+
+RUN npm run doc
 
 # Expose the port the app runs in
 EXPOSE 8080
