@@ -1,4 +1,5 @@
 const { ExpressAsyncCatch } = require('../../utils')
+const { Errors } = require('../../global')
 const Joi = require('@hapi/joi')
 /**
  * @namespace Middleware
@@ -20,7 +21,7 @@ module.exports = (requestField, schema) => {
     }
     if (validateResult.error) {
       console.log(validateResult)
-      throw new Error('参数不正确')
+      throw Errors.ClientError.badRequest('参数不合规')
     }
     next()
   })

@@ -17,7 +17,9 @@
     "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors  --watchAll --runInBand"
   },
   "dependencies": {
+    "@hapi/boom": "^7.4.2",
     "@hapi/joi": "^15.0.3",
+    "@types/hapi__boom": "^7.4.0",
     "@types/hapi__joi": "^15.0.1",
     "apidoc": "^0.17.7",
     "body-parser": "^1.4.3",

@@ -2,6 +2,7 @@ var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
 const validate = require('./middlewares/validate')
+const { Errors } = require('../global')
 const Joi = require('@hapi/joi')
 /**
  * @api {get} /account?account_id=account_id 获取用户存款信息
@@ -18,6 +19,7 @@ router.get('/account',
     const account = await Model.Account.findOne({
       account_id
     })
+    if (!account) throw Errors.ClientError.badRequest('account_id不正确')
     res.send(account)
   })
 )
@@ -28,6 +30,11 @@ router.get('/account',
  * @apiParam {Number} balance 初始存款
  * @apiGroup Account
  * @apiUse Balance
+ * @apiErrorExample
+ * {
+ *    errcode: 1,   // errcode 为非零值
+ *    errmsg: 'account_id已存在'
+ * }
  */
 router.post('/account',
   validate('body', Joi.object().keys({
@@ -36,11 +43,21 @@ router.post('/account',
   })),
   ExpressAsyncCatch(async (req, res, next) => {
     const { account_id, balance } = req.body
-    const account = await Model.Account.create({
-      account_id,
-      balance
+    const exists = await Model.Account.findOne({
+      account_id
     })
-    res.send(account)
+    if (exists) {
+      res.send({
+        errcode: 1,
+        errmsg: 'account_id已存在'
+      })
+    } else {
+      const account = await Model.Account.create({
+        account_id,
+        balance
+      })
+      res.send(account)
+    }
   })
 )
 

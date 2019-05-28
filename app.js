@@ -2,11 +2,10 @@ var express = require('express')
 var app = express()
 const path = require('path')
 var mongoose = require('mongoose')
-var database = require('./config/database')
 var morgan = require('morgan')
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
-const { NODE_ENV } = require('./config')
+const { NODE_ENV, database } = require('./global')
 const handleError = require('./routes/middlewares/handle-error')
 // 连接数据库
 mongoose.connect(database[NODE_ENV], {
