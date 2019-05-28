@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "doc": "node_modules/apidoc/bin/apidoc -i ./app/routes -o docs/api/"
+    "doc": "node node_modules/apidoc/bin/apidoc -i ./app/routes -o docs/api/"
   },
   "dependencies": {
     "body-parser": "^1.4.3",
