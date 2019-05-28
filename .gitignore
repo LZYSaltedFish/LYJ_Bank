@@ -1,0 +1,12 @@
+logs/
+npm-debug.log
+node_modules/
+package-lock.json
+
+.DS_Store
+
+
+data
+
+docs
+app/model/generated
