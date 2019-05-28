@@ -7,6 +7,10 @@ $ docker-compose build
 # 启动服务
 $ docker-compose up -d
 ```
+## 本地测试
+``` bash
+npm run test      # 需要安装mongodb服务
+```
 
 # 目录结构
 ```

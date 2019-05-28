@@ -4,6 +4,7 @@ const { ExpressAsyncCatch } = require('../utils')
 /**
  * @api {get} /todos 获取todo
  * @apiGroup Todo
+ * @apiUse Todos
  * @apiUse Todo
  */
 router.get('/todos', ExpressAsyncCatch(async (req, res, next) => {
