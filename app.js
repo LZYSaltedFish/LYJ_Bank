@@ -10,7 +10,7 @@ var methodOverride = require('method-override')
 
 mongoose.connect(database.localUrl)
 
-app.use(express.static('./bank'))
+app.use('/bank', express.static('./bank'))
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ 'extended': 'true' }))
 app.use(bodyParser.json())
