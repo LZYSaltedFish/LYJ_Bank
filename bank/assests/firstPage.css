@@ -1,0 +1,90 @@
+#icon{
+  margin-left: 40px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  vertical-align: initial;
+}
+
+.slogan{
+  display: inline-block;
+  margin-left: 3px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#808080;
+}
+
+.firstLine{
+  border-bottom: thin solid #E0E0E0;
+}
+
+#title{
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.demo{
+  margin-left: 40px;
+  margin-top: 140px;
+}
+
+.demo1{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #808080;
+}
+
+.demo2{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #808080;
+}
+
+.demo3{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #808080;
+}
+
+.demo4{
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #808080;
+}
+
+#icon1{
+  float: right;
+  height: 500px;
+  width: 600px;
+  margin-right: 200px;
+}
+
+.picture{
+  margin-left: 40px;
+  margin-top: 280px;
+}
+
+.picture1,.picture2,.picture3,.picture4,.picture5{
+  display: inline-block;
+  width: 20%;
+
+}
+
+.tag{
+  color: #808080;
+  font-size: 22px;
+  vertical-align: middle;
+  line-height: 50px;
+}
+
+.btn-group{
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+#create{
+  float: right;
+  margin-right: 40px;
+  margin-top: 10px;
+}
+
