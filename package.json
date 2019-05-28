@@ -17,6 +17,8 @@
     "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors  --watchAll --runInBand"
   },
   "dependencies": {
+    "@hapi/joi": "^15.0.3",
+    "@types/hapi__joi": "^15.0.1",
     "apidoc": "^0.17.7",
     "body-parser": "^1.4.3",
     "express": "^4.13.4",
@@ -31,6 +33,8 @@
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-node": ">=7.0.0",
     "eslint-plugin-promise": ">=4.0.0",
-    "eslint-plugin-standard": ">=4.0.0"
+    "eslint-plugin-standard": ">=4.0.0",
+    "jest": "^24.1.0",
+    "supertest": "^3.3.0"
   }
 }

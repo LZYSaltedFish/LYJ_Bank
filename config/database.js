@@ -1,5 +1,5 @@
 module.exports = {
-  test: 'localhost:27017',
-  development: 'localhost:27017',
+  test: 'mongodb://localhost:27017',
+  development: 'mongodb://localhost:27017',
   production: 'mongodb://database/docker-mean'
 }

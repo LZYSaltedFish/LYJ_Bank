@@ -1,24 +1,16 @@
-var Todo = require('../models/todo')
+var Model = require('../models')
 const router = require('express').Router()
-function getTodos () {
-  Todo.find(function (err, todos) {
-    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-    if (err) {
-      throw new Error(err)
-    }
-
-    return todos
-  })
-};
+const { ExpressAsyncCatch } = require('../utils')
 /**
  * @api {get} /todos 获取todo
  * @apiGroup Todo
  * @apiUse Todo
  */
-router.get('/todos', function (req, res) {
+router.get('/todos', ExpressAsyncCatch(async (req, res, next) => {
   // use mongoose to get all todos in the database
-  res.send(getTodos())
-})
+  const todos = await Model.Todo.find()
+  res.send(todos)
+}))
 
 /**
  * @api {post} /todos 创建一个todo
@@ -26,18 +18,18 @@ router.get('/todos', function (req, res) {
  * @apiGroup Todo
  * @apiUse Todo
  */
-router.post('/todos', function (req, res) {
+router.post('/todos', ExpressAsyncCatch(async (req, res, next) => {
   // create a todo, information comes from AJAX request from Angular
-  Todo.create({
+  Model.Todo.create({
     text: req.body.text,
     done: false
   }, function (err, todo) {
     if (err) { res.send(err) }
 
     // get and return all the todos after you create another
-    res.send(getTodos())
+    res.send(todo)
   })
-})
+}))
 
 /**
  * @api {delete} /todos/:todo_id 删除一项todo
@@ -45,14 +37,10 @@ router.post('/todos', function (req, res) {
  * @apiGroup Todo
  * @apiUse Todo
  */
-router.delete('/todos/:todo_id', function (req, res) {
-  Todo.remove({
-    _id: req.params.todo_id
-  }, function (err, todo) {
-    if (err) { res.send(err) }
-    res.send(getTodos())
-  })
-})
+router.delete('/todos/:todo_id', ExpressAsyncCatch(async (req, res, next) => {
+  const todo = await Model.Todo.remove({ _id: req.params.todo_id })
+  res.send(todo)
+}))
 
 
 module.exports = router
