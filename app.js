@@ -18,7 +18,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 // 加载路由
-app.use('/api', require('./app/routes'))
+app.use('/', require('./app/routes'))
 app.use('/doc', express.static(path.resolve(__dirname, 'docs', 'api')))
 
 module.exports = app
