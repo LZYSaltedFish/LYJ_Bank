@@ -8,8 +8,8 @@ const Model = require('../models')
 /**
  * 
  * @api {post} /login 用户登录
- * @apiGroup Authenticate
  * @apiParam  {string} username 用户名
+ * @apiGroup Authenticate
  * @apiUse User
  */
 router.post('/login',

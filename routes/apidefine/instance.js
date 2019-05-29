@@ -22,3 +22,12 @@
  *    balance: 666              // 存款
  * }
  */
+
+/**
+ * @apiDefine User
+ * @apiSuccessExample {json} User
+ * {
+ *    _id: 'mongo_id'
+ *    username: '用户名'
+ * }
+ */

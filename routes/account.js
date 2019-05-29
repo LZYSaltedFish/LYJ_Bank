@@ -30,7 +30,7 @@ router.get('/account',
  * @apiParam {Number} balance 初始存款
  * @apiGroup Account
  * @apiUse Account
- * @apiErrorExample
+ * @apiErrorExample {json} error
  * {
  *    errcode: 1,   // errcode 为非零值
  *    errmsg: 'account_id已存在'
