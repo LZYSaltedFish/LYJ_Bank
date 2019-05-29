@@ -14,8 +14,8 @@
  */
 
 /**
- * @apiDefine Balance
- * @apiSuccessExample {json} Balance
+ * @apiDefine Account
+ * @apiSuccessExample {json} Account
  * {
  *    _id: 'mongo_id'           // mongo 唯一标识
  *    account_id: 'accountID',  // 账户id

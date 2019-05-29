@@ -8,7 +8,7 @@ const Joi = require('@hapi/joi')
  * @api {get} /account?account_id=account_id 获取用户存款信息
  * @apiParam {String} account_id 账户id
  * @apiGroup Account
- * @apiUse Balance
+ * @apiUse Account
  */
 router.get('/account',
   validate('query', Joi.object().keys({
@@ -29,7 +29,7 @@ router.get('/account',
  * @apiParam {String} account_id 账户id
  * @apiParam {Number} balance 初始存款
  * @apiGroup Account
- * @apiUse Balance
+ * @apiUse Account
  * @apiErrorExample
  * {
  *    errcode: 1,   // errcode 为非零值
