@@ -1,3 +1,4 @@
+require('./.env')
 var express = require('express')
 var app = express()
 const path = require('path')

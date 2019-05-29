@@ -53,6 +53,7 @@ router.post('/account',
       })
     } else {
       const account = await Model.Account.create({
+        username: req.user.username,
         account_id,
         balance
       })

@@ -4,6 +4,12 @@ module.exports = async (err, req, res, next) => {
   console.warn('[Client Error]\t')
   // console.warn(err)
   if (err.isBoom && !err.isServer) {
+    if (err.output.statusCode === 401) {
+      err.data = {
+        type: 'Unauthorized',
+        suggest: 'debug'
+      }
+    }
     return res.status(err.output.statusCode).send({
       type: err.data.type,
       message: err.output.payload.message,

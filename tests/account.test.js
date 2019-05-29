@@ -1,4 +1,4 @@
-const { request } = require('../tests')
+const { request, tokens } = require('../tests')
 const setup = require('./seed')
 beforeAll(async () => {
   await setup()
@@ -14,6 +14,7 @@ describe('account', () => {
         account_id: 'account1',
         balance: 0
       })
+      .set(tokens.user_a)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBe(1)
@@ -26,6 +27,7 @@ describe('account', () => {
         account_id: 'account100',
         balance: 0
       })
+      .set(tokens.user_a)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBeUndefined()
@@ -34,6 +36,7 @@ describe('account', () => {
   })
   test('获取账户信息', (done) => {
     request.get('/api/account')
+      .set(tokens.user_a)
       .query({
         account_id: 'account1'
       })
