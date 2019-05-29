@@ -15,6 +15,19 @@ mongoose.connect(database[NODE_ENV], {
 // 添加mongoose对全局promise的依赖
 mongoose.Promise = global.Promise
 
+// 允许跨域请求
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', '*')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH')
+  res.header('Access-Control-Expose-Headers', '*')
+  res.removeHeader('X-Powered-By')
+  if (req.method === 'OPTIONS') {
+    res.status(200).send()
+  } else {
+    next()
+  }
+})
 // 路由初始化
 app.use('/bank', express.static('./bank'))
 app.use(morgan('dev'))
