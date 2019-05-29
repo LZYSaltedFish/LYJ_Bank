@@ -29,4 +29,16 @@ cloud-server
 ├── config                        配置文件
 ├── package.json                  版本控制
 └── server.js                     服务入口, 监听端口
+cloud-server
+├── app.js
+├── bank
+│   └── assets                   样式文件/图片
+├── global                        全局数据库配置 / 错误枚举
+├── jest.config.js                jest配置文件
+├── models                        数据库模型
+├── package.json                  版本控制
+├── routes                        路由 / apidoc文档定义
+├── server.js                     服务入口, 监听端口
+├── tests                         jest测试
+└── utils                         工具包
 ```
