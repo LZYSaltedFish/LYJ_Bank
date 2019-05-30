@@ -22,7 +22,11 @@ describe('user', () => {
         username: '23333',
         password: '123456'
       })
-      .expect(409, done)
+      .expect(200)
+      .then(res => {
+        expect(res.body.errcode).toBe(5)
+        done()
+      })
   })
   test('登陆', (done) => {
     request.post('/api/login')
