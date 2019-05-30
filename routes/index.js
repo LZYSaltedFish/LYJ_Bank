@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const todo = require('./todo')
 const account = require('./account')
 const deposit = require('./deposit')
 const withdraw = require('./withdraw')
@@ -14,7 +13,6 @@ router.use('/', user)
 
 // 以下接口都需要认证
 router.use(authenticate)
-router.use('/', todo)
 router.use('/', account)
 router.use('/', deposit)
 router.use('/', withdraw)

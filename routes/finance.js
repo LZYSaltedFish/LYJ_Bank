@@ -10,7 +10,7 @@ const Joi = require('@hapi/joi')
  * @apiParam {Number} amount 购买金额
  * @apiParam {String} product_type 产品类型：国债/定期
  * @apiParam {Number} term 时长
- * @apiGroup Account
+ * @apiGroup Finance
  * @apiErrorExample insufficient_funds
  * {
  *    errcode: 2,   // errcode 为非零值
@@ -60,7 +60,7 @@ router.put('/account/finance',
 /**
  * @api {get} /account/fiannce?account_id=account_id 查询理财
  * @apiParam {String} account_id 账户id
- * @apiGroup Account
+ * @apiGroup Finance
  */
 router.get('/account/finance',
   validate('query', Joi.object().keys({
@@ -82,7 +82,7 @@ router.get('/account/finance',
 /**
  * @api {delete} /account/finance/:finance_id?account_id=account_id 取消理财
  * @apiParam {String} account_id 账户id
- * @apiGroup Account
+ * @apiGroup Finance
  */
 router.delete('/account/finance/:finance_id',
   validate('query', Joi.object().keys({
