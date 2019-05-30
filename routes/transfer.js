@@ -10,6 +10,7 @@ const Joi = require('@hapi/joi')
  * @apiParam {String} amount 转账金额
  * @apiGroup Account
  * @apiUse Account
+ * @apiSuccessExample 
  * @apiErrorExample account_not_found
  * {
  *    errcode: 3,   //errcode 为非零值
@@ -62,7 +63,10 @@ router.put('/account/transfer',
         operation_type: 'Transfer',
         record_time: new Date()
       })
-      res.send(remitter)
+      const remitter_new = await Model.Account.findOne({
+        account_id: account_id
+      })
+      res.send(remitter_new)
     }
   })
 )

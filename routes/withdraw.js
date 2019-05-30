@@ -43,7 +43,10 @@ router.put('/account/withdraw',
         operation_type: 'withdraw',
         record_time: new Date()
       })
-      res.send(account)
+      const account_new = await Model.Account.findOne({
+        account_id: account_id
+      })
+      res.send(account_new)
     }
   })
 )

@@ -11,7 +11,7 @@ const Joi = require('@hapi/joi')
  * @apiParam {String} product_type 产品类型：国债/定期
  * @apiParam {Number} term 时长
  * @apiGroup Finance
- * @apiSuccessExample 购买理财成功
+ * @apiSuccessExample product_info
  * {
  *    __v: 0    //MongoDB自己的东西，没用的
  *    account_id: 'account3',
