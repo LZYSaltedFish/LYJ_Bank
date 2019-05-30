@@ -56,11 +56,8 @@ router.put('/account/finance',
         product_type: account_finance.product_type,
         term: account_finance.term
       })
-      console.log(account_finance)
-      console.log(interest.interest)
       var estimated_money = account_finance.amount * Math.pow((interest.interest + 1), account_finance.term)
-      console.log('预计得到的本金和利息为：' + estimated_money)
-      res.send(account_finance)
+      res.send(account_finance + estimated_money)
     }
   })
 )
