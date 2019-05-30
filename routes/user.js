@@ -13,6 +13,11 @@ const Model = require('../models')
  * @apiParam {String} password 密码
  * @apiGroup User
  * @apiUse User
+ * @apiErrorExample {json} error
+ * {
+ *    errcode: 4,
+ *    errmsg: '用户名或密码错误'
+ * }
  */
 router.post('/login',
   validate('body', Joi.object().keys({
@@ -25,7 +30,12 @@ router.post('/login',
       username: username,
       password: password
     })
-    if (!user) throw Errors.ClientError.badRequest('用户名或密码错误')
+    if (!user) {
+      res.send({
+        errcode: 4,
+        errmsg: '用户名或密码错误'
+      })
+    }
     // 删除password字段 防止信息泄露
     delete user.password
     const token = Service.JWT.sign(user.toJSON())
@@ -40,6 +50,11 @@ router.post('/login',
  * @apiParam {String} password 密码
  * @apiGroup User
  * @apiUse User
+ * @apiErrorExample {json} error
+ * {
+ *    errcode: 5,
+ *    errmsg: '该用户名已存在'
+ * }
  */
 router.post('/register',
   validate('body', Joi.object().keys({
@@ -51,7 +66,12 @@ router.post('/register',
     const exists = await Model.User.findOne({
       username: username
     })
-    if (exists) throw Errors.ClientError.conflict('该用户名已存在')
+    if (exists) {
+      res.send({
+        errcode: 5,
+        errmsg: '该用户名已存在'
+      })
+    }
     const user = await Model.User.create({
       username,
       password
