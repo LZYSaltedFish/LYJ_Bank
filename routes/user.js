@@ -26,7 +26,7 @@ router.post('/login',
   })),
   ExpressAsyncCatch(async (req, res, next) => {
     const { username, password } = req.body
-    const user = await Model.User.findOne({
+    let user = await Model.User.findOne({
       username: username,
       password: password
     })
@@ -37,8 +37,9 @@ router.post('/login',
       })
     }
     // 删除password字段 防止信息泄露
+    user = user.toJSON()
     delete user.password
-    const token = Service.JWT.sign(user.toJSON())
+    const token = Service.JWT.sign(user)
     res.set('Authorization', 'Bearer ' + token)
     res.send(user)
   })
