@@ -72,12 +72,13 @@ router.post('/register',
         errcode: 5,
         errmsg: '该用户名已存在'
       })
+    } else {
+      const user = await Model.User.create({
+        username,
+        password
+      })
+      res.send(user)
     }
-    const user = await Model.User.create({
-      username,
-      password
-    })
-    res.send(user)
   })
 )
 

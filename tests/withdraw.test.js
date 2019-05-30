@@ -13,7 +13,7 @@ describe('account', () => {
         account_id: 'account2',
         amount: 6000
       })
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBe(2)
@@ -26,7 +26,7 @@ describe('account', () => {
         account_id: 'account2',
         amount: 20
       })
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBeUndefined()

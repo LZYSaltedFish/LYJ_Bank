@@ -8,7 +8,7 @@
   "author": "Elton de Souza",
   "apidoc": {
     "title": "云计算后台文档",
-    "url": "https://148.100.245.85:8080/api",
+    "url": "http://148.100.245.85:8080/api",
     "description": "云计算后台文档"
   },
   "scripts": {

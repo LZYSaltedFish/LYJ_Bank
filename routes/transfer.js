@@ -1,13 +1,13 @@
 var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
-const validate = require('./middlewares/validate')
-const { Errors } = require('../global')
+const { validate, checkAccount } = require('./middlewares')
 const Joi = require('@hapi/joi')
 /**
  * @api {put} /account/transfer 转账
- * @apiParam {String} remitter_id 汇款人id
+ * @apiParam {String} account_id 汇款人id
  * @apiParam {String} recipient_id 收款人id
+ * @apiParam {String} amount 转账金额
  * @apiGroup Account
  * @apiUse Account
  * @apiErrorExample account_not_found
@@ -23,14 +23,15 @@ const Joi = require('@hapi/joi')
  */
 router.put('/account/transfer',
   validate('body', Joi.object().keys({
-    remitter_id: Joi.string().required(),
+    account_id: Joi.string().required(),
     recipient_id: Joi.string().required(),
     amount: Joi.number().required().min(0)
   })),
+  checkAccount('body'),
   ExpressAsyncCatch(async (req, res, next) => {
-    const { remitter_id, recipient_id, amount } = req.body
+    const { account_id, recipient_id, amount } = req.body
     const remitter = await Model.Account.findOne({
-      account_id: remitter_id
+      account_id
     })
     const recipient = await Model.Account.findOne({
       account_id: recipient_id
@@ -47,7 +48,7 @@ router.put('/account/transfer',
       })
     } else {
       await Model.Account.update(
-        { account_id: remitter_id },
+        { account_id },
         { balance: remitter.balance - amount }
       )
       await Model.Account.update(
@@ -55,7 +56,7 @@ router.put('/account/transfer',
         { $set: { balance: recipient.balance + amount } }
       )
       await Model.Record.create({
-        remitter_id: remitter_id,
+        remitter_id: account_id,
         recipient_id: recipient_id,
         amount: amount,
         operation_type: 'Transfer',

@@ -1,7 +1,7 @@
 var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
-const validate = require('./middlewares/validate')
+const { validate, checkAccount } = require('./middlewares')
 const { Errors } = require('../global')
 const Joi = require('@hapi/joi')
 /**
@@ -14,6 +14,7 @@ router.get('/account',
   validate('query', Joi.object().keys({
     account_id: Joi.string().required()
   })),
+  checkAccount('query'),
   ExpressAsyncCatch(async (req, res, next) => {
     let { account_id } = req.query
     const account = await Model.Account.findOne({

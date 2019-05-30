@@ -1,7 +1,7 @@
 var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
-const validate = require('./middlewares/validate')
+const { validate, checkAccount } = require('./middlewares')
 const { Errors } = require('../global')
 const Joi = require('@hapi/joi')
 /**
@@ -24,6 +24,7 @@ router.put('/account/finance',
     product_type: Joi.string().required(),
     term: Joi.number().required().min(1).max(20)
   })),
+  checkAccount('body'),
   ExpressAsyncCatch(async (req, res, next) => {
     const { account_id, amount, product_type, term } = req.body
     const account_balance = await Model.Account.findOne({
@@ -66,11 +67,13 @@ router.put('/account/finance',
  * @api {get} /account/fiannce?account_id=account_id 查询理财
  * @apiParam {String} account_id 账户id
  * @apiGroup Finance
+ * @apiUse Finance
  */
 router.get('/account/finance',
   validate('query', Joi.object().keys({
     account_id: Joi.string().required()
   })),
+  checkAccount('query'),
   ExpressAsyncCatch(async (req, res, next) => {
     let { account_id } = req.query
     const exist = await Model.Account.findOne({
@@ -93,6 +96,7 @@ router.delete('/account/finance/:finance_id',
   validate('query', Joi.object().keys({
     account_id: Joi.string().required()
   })),
+  checkAccount('query'),
   ExpressAsyncCatch(async (req, res, next) => {
     let { finance_id } = req.params
     let { account_id } = req.query

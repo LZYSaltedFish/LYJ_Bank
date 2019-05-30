@@ -31,3 +31,16 @@
  *    username: '用户名'
  * }
  */
+
+/**
+ * @apiDefine Finance
+ * @apiSuccessExample {json} Finance
+ * {
+ *    _id: 'mongo_id'
+ *    account_id: 'account_id'  // 账户id
+ *    buy_time: '2019-01-01' // 转账时间
+ *    amount: 1 // 转账金额
+ *    product_type: String,
+ *    term: Number
+ * }
+ */

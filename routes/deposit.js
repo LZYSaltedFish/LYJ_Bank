@@ -1,8 +1,7 @@
 var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
-const validate = require('./middlewares/validate')
-const { Errors } = require('../global')
+const { validate, checkAccount } = require('./middlewares')
 const Joi = require('@hapi/joi')
 /**
  * @api {put} /account/deposit 存款
@@ -16,6 +15,7 @@ router.put('/account/deposit',
     account_id: Joi.string().required(),
     amount: Joi.number().required().min(0)
   })),
+  checkAccount('body'),
   ExpressAsyncCatch(async (req, res, next) => {
     const { account_id, amount } = req.body
     const account = await Model.Account.findOne({

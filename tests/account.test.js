@@ -35,10 +35,18 @@ describe('account', () => {
   })
   test('获取账户信息', (done) => {
     request.get('/api/account')
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .query({
         account_id: 'account1'
       })
       .expect(200, done)
+  })
+  test('获取账户信息->账户不是用户所有', (done) => {
+    request.get('/api/account')
+      .set(tokens.user_a)
+      .query({
+        account_id: 'account1'
+      })
+      .expect(403, done)
   })
 })

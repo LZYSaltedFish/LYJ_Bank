@@ -15,14 +15,14 @@ describe('account', () => {
         product_type: 'National_Debt',
         term: 4
       })
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBe(2)
         done()
       })
   })
-  test.only('购买理财-->操作合法', (done) => {
+  test('购买理财-->操作合法', (done) => {
     request.put('/api/account/finance')
       .send({
         account_id: 'account3',
@@ -30,7 +30,7 @@ describe('account', () => {
         product_type: 'Fixed_Term',
         term: 4
       })
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBeUndefined()
@@ -42,7 +42,7 @@ describe('account', () => {
       .query({
         account_id: 'account3'
       })
-      .set(tokens.user_a)
+      .set(tokens.user_b)
       .expect(200, done)
   })
   // 每次测试的时候需要替换新的Objectid
