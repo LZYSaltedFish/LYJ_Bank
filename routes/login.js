@@ -27,4 +27,16 @@ router.post('/login',
   })
 )
 
+/**
+ * @api {get} /users 用户列表
+ * @apiGroup User
+ * @apiUse User
+ */
+router.get('/users',
+  ExpressAsyncCatch(async (req, res, next) => {
+    const users = await Model.User.find()
+    res.send(users)
+  })
+)
+
 module.exports = router
