@@ -15,11 +15,11 @@ const Joi = require('@hapi/joi')
  * {
  *    __v: 0    //MongoDB自己的东西，没用的
  *    account_id: 'account3',
- *    buy_time: 2019-05-30T15:26:01.288Z,
+ *    buy_time: '2019-05-30T15:26:01.288Z',
  *    amount: 40,
  *    product_type: 'Time deposit',
  *    term: 4,
- *    _id: 5ceff609c110fa1c802ae256   //理财产品在数据库中的id
+ *    _id: '5ceff609c110fa1c802ae256'   //理财产品在数据库中的id
  *    estimated_money: 43.462817433   //预计到期时的本金＋利息
  * }
  * @apiErrorExample insufficient_funds
@@ -75,15 +75,15 @@ router.put('/account/finance',
 )
 
 /**
- * @api {get} /account/finance?account_id=account_id 查询理财
+ * @api {get} /account/finance?account_id:=account_id 查询理财
  * @apiParam {String} account_id 账户id
  * @apiGroup Finance
  * @apiUse Finance
  * @apiSuccessExample all_products_info
  * {
- *    _id: 5cefa2c6f1360f23d8a64da0,   //理财产品id，在取消理财的时候用这个id
+ *    _id: '5cefa2c6f1360f23d8a64da0',   //理财产品id，在取消理财的时候用这个id
  *    account_id: 'account3',
- *    buy_time: 2019-05-30T09:30:46.303Z,
+ *    buy_time: '2019-05-30T09:30:46.303Z',
  *    amount: 40,
  *    product_type: 'Time deposit',
  *    term: 4,
@@ -114,12 +114,14 @@ router.get('/account/finance',
         errmsg: '收款账号不存在'
       })
     }
+    console.log(finances)
+    console.log('数组长度' + finances.length)
     res.send(finances)
   })
 )
 
 /**
- * @api {delete} /account/finance/:finance_id?account_id=account_id 取消理财
+ * @api {delete} /account/finance/:finance_id?account_id:=account_id 取消理财
  * @apiParam {String} account_id 账户id
  * @apiGroup Finance
  * @apiSuccessExample balance_after_cancel
@@ -139,7 +141,6 @@ router.delete('/account/finance/:finance_id',
     const account = await Model.Account.findOne({
       account_id: account_id
     })
-    console.log('取消前的余额' + account.balance)
     const finance = await Model.Finance.findOne({
       _id: finance_id
     })
