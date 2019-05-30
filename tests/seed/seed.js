@@ -8,4 +8,5 @@ mongoose.connect(database[NODE_ENV], {
 mongoose.Promise = global.Promise
 seed().then(() => {
   console.info('[模拟数据]\t插入成功')
+  process.exit(0)
 })
