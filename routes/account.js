@@ -62,5 +62,4 @@ router.post('/account',
   })
 )
 
-
 module.exports = router

@@ -6,7 +6,6 @@ beforeAll(async () => {
 
 afterAll(async () => {
 })
-
 describe('account', () => {
   test('创建account->account_id重复', (done) => {
     request.post('/api/account')

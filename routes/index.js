@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const todo = require('./todo')
 const account = require('./account')
+const deposit = require('./deposit')
+const withdraw = require('./withdraw')
+const transfer = require('./transfer')
+const finance = require('./finance')
 const user = require('./user')
 const authenticate = require('./middlewares/authenticate')
 
@@ -12,5 +16,9 @@ router.use('/', user)
 router.use(authenticate)
 router.use('/', todo)
 router.use('/', account)
+router.use('/', deposit)
+router.use('/', withdraw)
+router.use('/', transfer)
+router.use('/', finance)
 
 module.exports = router

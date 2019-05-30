@@ -4,7 +4,7 @@ const { JWT } = require('../../service')
 const jwt = JWT.jwt
 /**
  * @module middleware
- * @description 对请求进行鉴权，并写入 username 到 req.ids
+ * @description 对请求进行鉴权，并写入 username 到 req.user
  * 
  */
 module.exports = ExpressAsyncCatch(async (req, res, next) => {
