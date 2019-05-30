@@ -12,7 +12,7 @@ describe('account', () => {
       .send({
         account_id: 'account2',
         amount: 4000,
-        product_type: 'National_Debt',
+        product_type: 'National debt',
         term: 4
       })
       .set(tokens.user_b)
@@ -27,7 +27,7 @@ describe('account', () => {
       .send({
         account_id: 'account3',
         amount: 40,
-        product_type: 'Fixed_Term',
+        product_type: 'Time deposit',
         term: 4
       })
       .set(tokens.user_b)

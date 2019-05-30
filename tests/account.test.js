@@ -17,6 +17,7 @@ describe('account', () => {
       .expect(200)
       .then(res => {
         expect(res.body.errcode).toBe(1)
+        expect()
         done()
       })
   })

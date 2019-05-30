@@ -17,7 +17,7 @@ const Joi = require('@hapi/joi')
  *    account_id: 'account3',
  *    buy_time: 2019-05-30T15:26:01.288Z,
  *    amount: 40,
- *    product_type: 'Fixed_Term',
+ *    product_type: 'Time deposit',
  *    term: 4,
  *    _id: 5ceff609c110fa1c802ae256   //理财产品在数据库中的id
  *    estimated_money: 43.462817433   //预计到期时的本金＋利息
@@ -55,13 +55,13 @@ router.put('/account/finance',
         remitter_id: account_id,
         record_time: new Date(),
         amount: amount,
-        operation_type: product_type === 'National_Debt' ? 'National_Debt' : 'Fixed_Term'
+        operation_type: product_type === 'National debt' ? 'National debt' : 'Time deposit'
       })
       const account_finance = await Model.Finance.create({
         account_id: account_id,
         buy_time: new Date(),
         amount: amount,
-        product_type: product_type === 'National_Debt' ? 'National_Debt' : 'Fixed_Term',
+        product_type: product_type === 'National debt' ? 'National debt' : 'Time deposit',
         term: term
       })
       const interest = await Model.Product_Info.findOne({
@@ -85,7 +85,7 @@ router.put('/account/finance',
  *    account_id: 'account3',
  *    buy_time: 2019-05-30T09:30:46.303Z,
  *    amount: 40,
- *    product_type: 'Fixed_Term',
+ *    product_type: 'Time deposit',
  *    term: 4,
  *    __v: 0    //和上面那个一样，没用的
  * }
