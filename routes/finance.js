@@ -30,7 +30,7 @@ const Joi = require('@hapi/joi')
 router.put('/account/finance',
   validate('body', Joi.object().keys({
     account_id: Joi.string().required(),
-    amount: Joi.number().required(),
+    amount: Joi.number().required().min(1),
     product_type: Joi.string().required(),
     term: Joi.number().required().min(1).max(20)
   })),

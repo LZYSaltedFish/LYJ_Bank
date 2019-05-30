@@ -33,7 +33,7 @@ router.put('/account/transfer',
   validate('body', Joi.object().keys({
     account_id: Joi.string().required(),
     recipient_id: Joi.string().required(),
-    amount: Joi.number().required().min(0)
+    amount: Joi.number().required().min(1)
   })),
   checkAccount('body'),
   ExpressAsyncCatch(async (req, res, next) => {

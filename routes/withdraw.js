@@ -27,7 +27,7 @@ const Joi = require('@hapi/joi')
 router.put('/account/withdraw',
   validate('body', Joi.object().keys({
     account_id: Joi.string().required(),
-    amount: Joi.number().required().min(0)
+    amount: Joi.number().required().min(1)
   })),
   checkAccount('body'),
   ExpressAsyncCatch(async (req, res, next) => {
