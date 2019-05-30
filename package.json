@@ -14,7 +14,8 @@
   "scripts": {
     "start": "node server.js",
     "doc": "node node_modules/apidoc/bin/apidoc -i ./routes -o docs/api/",
-    "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors  --watchAll --runInBand"
+    "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors  --watchAll --runInBand",
+    "seed": "node ./tests/seed/seed.js"
   },
   "dependencies": {
     "@hapi/boom": "^7.4.2",

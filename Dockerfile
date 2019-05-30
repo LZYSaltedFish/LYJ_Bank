@@ -6,6 +6,9 @@ RUN mkdir -p /usr/src
 
 ENV NODE_ENV production
 
+## ---- 东八区 ---
+ENV TZ Asia/Shanghai
+
 # Change directory so that our commands run inside this new dir
 WORKDIR /usr/src
 
@@ -24,4 +27,4 @@ RUN npm run doc
 EXPOSE 8080
 
 # Serve the app
-CMD ["npm", "start"]
+CMD ["sh","-c","npm run seed && npm start"]
