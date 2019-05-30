@@ -1,4 +1,4 @@
-const { request, tokens } = require('.')
+const { request } = require('.')
 const setup = require('./seed')
 beforeAll(async () => {
   await setup()
@@ -24,7 +24,7 @@ describe('user', () => {
       })
       .expect(409, done)
   })
-  test.only('登陆', (done) => {
+  test('登陆', (done) => {
     request.post('/api/login')
       .send({
         username: '23333',
