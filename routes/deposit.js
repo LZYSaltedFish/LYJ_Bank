@@ -9,6 +9,14 @@ const Joi = require('@hapi/joi')
  * @apiParam {Number} amount 存款金额
  * @apiGroup Account
  * @apiUse Account
+ * @apiSuccessExample account_after_deposit
+ * {
+ *    _id: '5cf00e9a84b2e35ac0360b00',   //数据库里的序号，没用的
+ *    username: '66666',
+ *    account_id: 'account1',
+ *    __v: 0,
+ *    balance: 700
+ * }
  */
 router.put('/account/deposit',
   validate('body', Joi.object().keys({

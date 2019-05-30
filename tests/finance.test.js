@@ -46,12 +46,12 @@ describe('account', () => {
       .expect(200, done)
   })
   // 每次测试的时候需要替换新的Objectid
-  test('取消理财', (done) => {
-    request.delete('/api/account/finance/5ceff609c110fa1c802ae256')
-      .query({
-        account_id: 'account3'
-      })
-      .set(tokens.user_b)
-      .expect(200, done)
-  })
+  // test('取消理财', (done) => {
+  //   request.delete('/api/account/finance/5ceff609c110fa1c802ae256')
+  //     .query({
+  //       account_id: 'account3'
+  //     })
+  //     .set(tokens.user_b)
+  //     .expect(200, done)
+  // })
 })

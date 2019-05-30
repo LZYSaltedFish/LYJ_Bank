@@ -10,7 +10,14 @@ const Joi = require('@hapi/joi')
  * @apiParam {String} amount 转账金额
  * @apiGroup Account
  * @apiUse Account
- * @apiSuccessExample 
+ * @apiSuccessExample 汇款人转账后的账户信息
+ * {
+ *    _id: '5cf01078f908605ac06159c4',
+ *    username: '666666',
+ *    account_id: 'account1',
+ *    __v: 0,
+ *    balance:450
+ * }
  * @apiErrorExample account_not_found
  * {
  *    errcode: 3,   //errcode 为非零值

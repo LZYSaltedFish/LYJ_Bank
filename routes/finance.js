@@ -115,8 +115,6 @@ router.get('/account/finance',
         errmsg: '收款账号不存在'
       })
     }
-    console.log(finances)
-    console.log('数组长度' + finances.length)
     res.send(finances)
   })
 )

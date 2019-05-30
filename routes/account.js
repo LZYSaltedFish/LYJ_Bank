@@ -9,6 +9,10 @@ const Joi = require('@hapi/joi')
  * @apiParam {String} account_id 账户id
  * @apiGroup Account
  * @apiUse Account
+ * @apiErrorExample account_id不正确
+ * {
+ *    '抛出handle-error错误,好像是401代码'
+ * }
  */
 router.get('/account',
   validate('query', Joi.object().keys({

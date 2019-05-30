@@ -10,6 +10,14 @@ const Joi = require('@hapi/joi')
  * @apiParam {Number} amount 取款金额
  * @apiGroup Account
  * @apiUse Account
+ * @apiSuccessExample account_after_withdraw
+ * {
+ *    _id: '5cf00fcb2c02d45ac05f8194',
+ *    username: '66666',
+ *    account_id: 'account2',
+ *    __v: 0,
+ *    balance: 480
+ * }
  * @apiErrorExample insufficient_funds
  * {
  *    errcode: 2,   // errcode 为非零值
