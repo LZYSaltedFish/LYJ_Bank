@@ -93,7 +93,7 @@ router.put('/account/finance',
  * @apiErrorExample account_not_found
  * {
  *    errcode: 3,   //errcode 为非零值
- *    errmsg: '收款账号不存在'
+ *    errmsg: '账号不存在'
  * }
  */
 router.get('/account/finance',
@@ -112,7 +112,7 @@ router.get('/account/finance',
     if (!exist) {
       res.send({
         errcode: 3,
-        errmsg: '收款账号不存在'
+        errmsg: '账号不存在'
       })
     }
     res.send(finances)
@@ -128,6 +128,16 @@ router.get('/account/finance',
  *    account_id: 'account3',
  *    balance: 500    //取消理财后的余额
  * }
+ * @apiErrorExample account_not_found
+ * {
+ *    errcode: 3,   //errcode 为非零值
+ *    errmsg: '账号不存在'
+ * }
+ * @apiErrorExample product_id_doesnt_exist
+ * {
+ *    errcode: 6,
+ *    errmsg: '该产品id不存在或已被删除'
+ * }
  */
 router.delete('/account/finance/:finance_id',
   validate('query', Joi.object().keys({
@@ -140,9 +150,21 @@ router.delete('/account/finance/:finance_id',
     const account = await Model.Account.findOne({
       account_id: account_id
     })
+    if (!account) {
+      res.send({
+        errcode: 3,
+        errmsg: '账号不存在'
+      })
+    }
     const finance = await Model.Finance.findOne({
       _id: finance_id
     })
+    if (!finance) {
+      res.send({
+        errcode: 6,
+        errmsg: '该产品id不存在或已被删除'
+      })
+    }
     await Model.Account.update(
       { account_id: account_id },
       { balance: account.balance + finance.amount }
