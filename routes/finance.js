@@ -2,7 +2,6 @@ var Model = require('../models')
 const router = require('express').Router()
 const { ExpressAsyncCatch } = require('../utils')
 const { validate, checkAccount } = require('./middlewares')
-const { Errors } = require('../global')
 const Joi = require('@hapi/joi')
 /**
  * @api {put} /account/finance 购买理财
@@ -57,19 +56,20 @@ router.put('/account/finance',
         amount: amount,
         operation_type: product_type === 'National debt' ? 'National debt' : 'Time deposit'
       })
-      const account_finance = await Model.Finance.create({
+      const account_finance = (await Model.Finance.create({
         account_id: account_id,
         buy_time: new Date(),
         amount: amount,
         product_type: product_type === 'National debt' ? 'National debt' : 'Time deposit',
         term: term
-      })
+      })).toJSON()
       const interest = await Model.Product_Info.findOne({
         product_type: account_finance.product_type,
         term: account_finance.term
       })
       var estimated_money = account_finance.amount * Math.pow((interest.interest + 1), account_finance.term)
-      res.send(account_finance + estimated_money)
+      account_finance.estimated_money = estimated_money
+      res.send(account_finance)
     }
   })
 )
