@@ -77,6 +77,7 @@ router.put('/account/finance',
 /**
  * @api {get} /account/finance?account_id=account_id 查询理财
  * @apiParam {String} account_id 账户id
+ * @apiGroup Finances
  * @apiGroup Finance
  * @apiUse Finance
  * @apiSuccessExample all_products_info

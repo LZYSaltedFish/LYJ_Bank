@@ -33,6 +33,12 @@
  */
 
 /**
+ * @apiDefine Finances
+ * @apiSuccessExample {json} Finances
+ * [Finance]
+ */
+
+/**
  * @apiDefine Finance
  * @apiSuccessExample {json} Finance
  * {
