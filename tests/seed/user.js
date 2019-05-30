@@ -3,7 +3,8 @@ let names = ['23333']
 module.exports = async () => {
   return Promise.all(names.map(async name => {
     const created = await Model.User.create({
-      username: name
+      username: name,
+      password: '123456'
     })
     return created
   }))
