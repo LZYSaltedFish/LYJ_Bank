@@ -22,7 +22,7 @@ router.put('/account/finance',
     account_id: Joi.string().required(),
     amount: Joi.number().required(),
     product_type: Joi.string().required(),
-    term: Joi.number().required()
+    term: Joi.number().required().min(1).max(20)
   })),
   ExpressAsyncCatch(async (req, res, next) => {
     const { account_id, amount, product_type, term } = req.body
@@ -52,6 +52,14 @@ router.put('/account/finance',
         product_type: product_type === 'National_Debt' ? 'National_Debt' : 'Fixed_Term',
         term: term
       })
+      const interest = await Model.Product_Info.findOne({
+        product_type: account_finance.product_type,
+        term: account_finance.term
+      })
+      console.log(account_finance)
+      console.log(interest.interest)
+      var estimated_money = account_finance.amount * Math.pow((interest.interest + 1), account_finance.term)
+      console.log('预计得到的本金和利息为：' + estimated_money)
       res.send(account_finance)
     }
   })

@@ -22,7 +22,7 @@ describe('account', () => {
         done()
       })
   })
-  test('购买理财-->操作合法', (done) => {
+  test.only('购买理财-->操作合法', (done) => {
     request.put('/api/account/finance')
       .send({
         account_id: 'account3',
