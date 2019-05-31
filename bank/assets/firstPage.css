@@ -121,7 +121,34 @@
   width: 100px;
 }
 
+#register{
+  margin-left: 40px;
+  margin-top: 40px;
+  width: 100px;
+}
+
 #input-password{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+#input-password1{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+#register-input-id{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+#register-input-password{
   height: 34px;
   width: 500px;
   margin-left: 40px;

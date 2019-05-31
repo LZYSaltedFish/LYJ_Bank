@@ -28,6 +28,12 @@ $('#inquiry').click(function(){
                     $('#show-balance').text("Dear customer, your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
                 }
+            },
+            401: function(data){
+                console.error(data.errmsg);
+                $('#word1').addClass('hidden');
+                $('#word2').text('Please log in first!!');
+                $('#my-info1').removeClass('hidden');
             }
         }
     })

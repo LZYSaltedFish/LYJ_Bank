@@ -5,7 +5,7 @@ $(function(){
 
     $('#thirdInput').addClass('hidden');
 
-    $('#my-info').addClass('my-hidden');
+    $('#my-info').addClass('hidden');
 
     $('#my-debt').click(function(){
         $('.debt').removeClass('hidden');
@@ -64,7 +64,7 @@ $('#yes').click(function(){
                 else
                 {
                     $('#my-info1').addClass('hidden');
-                    $('#my-info').removeClass('my-hidden');
+                    $('#my-info').removeClass('hidden');
                     var tpl = $('#fia-service-tpl>div');
                     var root = $('#my-info');
                     var newNode = tpl.clone();
@@ -74,6 +74,11 @@ $('#yes').click(function(){
                     newNode.find('.estimated-money').text(data.estimated_money);
                     root.append(newNode);
                 }
+            },
+            401: function(data){
+                console.error(data.errmsg);
+                $('#my-info1>div').text('Please log in first!!');
+                $('#my-info1').removeClass('hidden');
             }
         }
     })

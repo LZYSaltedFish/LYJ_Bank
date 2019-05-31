@@ -34,11 +34,12 @@
         </div>
 
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="log-in">Log in</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal1" id="register">Register</button>
 
-        <!-- 密码输入错误后弹出提示 -->
+        <!-- 用户名或密码输入错误后弹出提示 -->
         <div class="alert alert-danger" role="alert" id="my-info1">
-            <div>Sorry! Fail to log in!</div>
-            <div>CustomerID or password wrong!</div>
+            <div id="word1">Sorry! Fail to log in!</div>
+            <div id="word2">CustomerID or password wrong!</div>
         </div>
 
 
@@ -120,12 +121,42 @@
                         </div>
                         <div class="input-group" id="input-password">
                             <span class="input-group-addon" id="basic-addon1">password</span>
-                            <input type="password" class="form-control" placeholder="Input your password here" aria-describedby="basic-addon1">
+                            <input type="password" class="form-control" placeholder="Input your password(6 numbers) here" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!-- 点击register后弹出的模态对话框 -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Input your customerID and password to register.</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group" id="register-input-id">
+                            <span class="input-group-addon" id="basic-addon1">customerID</span>
+                            <input type="text" class="form-control" placeholder="Input your customerID here" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group" id="register-input-password">
+                            <span class="input-group-addon" id="basic-addon1">password</span>
+                            <input type="password" class="form-control" placeholder="Input your password(6 numbers) here" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group" id="input-password1">
+                            <span class="input-group-addon" id="basic-addon1">confirm password</span>
+                            <input type="password" class="form-control" placeholder="input your password(6 numbers) again" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-primary"  id="register-confirm">Yes</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

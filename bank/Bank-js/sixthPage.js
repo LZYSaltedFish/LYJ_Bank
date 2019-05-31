@@ -1,5 +1,6 @@
 $(function(){
-    $('#my-info').addClass('my-hidden');
+    $('#my-info').addClass('hidden');
+    $('#my-info-1').addClass('hidden');
 
     $('#yes').click(function(){
         var item = $('#'+$(this).data("item-id"));
@@ -47,26 +48,39 @@ $(function(){
                     }
                     else
                     {
-                        $('#my-info').removeClass('my-hidden');
-                        var tpl = $('#fia-service-tpl>div');
-                        var root = $('#my-info');
-                        for (var i = 0; i < data.length; i++)
+                        if(data.length === 0)
                         {
-                            var newNode = tpl.clone();
-                            newNode.attr('id', 'fia-service-item-' + i);
-                            newNode.find('.product-type').text(data[i].product_type);
-                            newNode.find('.term').text(data[i].term);
-                            newNode.find('.amount').text(data[i].amount);
-                            newNode.data("finance-id", data[i]._id);
-                            root.append(newNode);
+                            $('#my-info-1').removeClass('hidden');
+                            $('#my-info').addClass('hidden');
                         }
-
-                        $('.delete-btn').click(function (){
+                        else
+                        {
+                            $('#my-info').removeClass('hidden');
+                            $('#my-info-1').addClass('hidden');
+                            var tpl = $('#fia-service-tpl>div');
+                            var root = $('#my-info');
+                            for (var i = 0; i < data.length; i++)
+                            {
+                                var newNode = tpl.clone();
+                                newNode.attr('id', 'fia-service-item-' + i);
+                                newNode.find('.product-type').text(data[i].product_type);
+                                newNode.find('.term').text(data[i].term);
+                                newNode.find('.amount').text(data[i].amount);
+                                newNode.data("finance-id", data[i]._id);
+                                root.append(newNode);
+                            }
+                            $('.delete-btn').click(function (){
                             $('#yes').data("item-id", $(this).parent().attr("id"));
                             $('#myModal').modal();
                         })
                     }
-                    
+                        
+                    }
+                },
+                401: function(data){
+                    console.error(data.errmsg);
+                    $('#my-info-1>div').text('Please log in first!!');
+                    $('#my-info-1').removeClass('hidden');
                 }
             }
         })

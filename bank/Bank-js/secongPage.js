@@ -34,6 +34,11 @@ $('#create').click(function(){
                     $('#show-balance').text("Your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
                 }   
+            },
+            401: function(data){
+                console.error(data.errmsg);
+                $('#my-info1>div').text('Please log in first!');
+                $('#my-info1').removeClass('hidden');
             }
         }
     })

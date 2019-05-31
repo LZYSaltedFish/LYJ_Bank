@@ -48,6 +48,13 @@ $('#yes').click(function(){
             400: function(data){
                 $('#my-info1').removeClass('hidden');
                 $('#failText').text('Wrong input!!!');
+            },
+            401: function(data)
+            {
+                console.error(data.errmsg);
+                $('#word1').addClass('hidden');
+                $('#failText').text('Please log in first!!');
+                $('#my-info1').removeClass('hidden');
             }
         }
     })
