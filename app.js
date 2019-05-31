@@ -29,6 +29,7 @@ app.use(function (req, res, next) {
   }
 })
 // 路由初始化
+app.get('/', (req, res, next) => { res.status(302).redirect('/bank/index.html') })
 app.use('/bank', express.static('./bank'))
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ 'extended': 'true' }))
