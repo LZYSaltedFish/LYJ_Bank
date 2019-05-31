@@ -73,10 +73,14 @@ router.post('/register',
         errmsg: '该用户名已存在'
       })
     } else {
-      const user = await Model.User.create({
+      let user = await Model.User.create({
         username,
         password
       })
+      user = user.toJSON()
+      delete user.password
+      const token = Service.JWT.sign(user)
+      res.set('Authorization', 'Bearer ' + token)
       res.send(user)
     }
   })
