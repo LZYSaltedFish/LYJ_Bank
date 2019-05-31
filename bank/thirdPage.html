@@ -1,39 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="root">
     <head>
         <meta charset="utf-8">
         <title>LYJ Bank</title>
         <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./assets/otherPages.css">
+        <link rel="stylesheet" type="text/css" href="./assests/otherPages.css">
         <style>
             body
             {
-                background-image:url('./assets/images/bacgrd1.png');
+                background-image:url('./assests/images/bacgrd1.png');
                 background-repeat:no-repeat;
                 background-attachment:fixed;
                 background-position: 0px 0px;
-                background-size: 100% 100%;
+                background-size: 100% 95%;
             }
         </style>
     </head>
     <body>
         <div class="firstLine">
-            <img id="icon" src="./assets/images/bank.png" alt="LJY Bank">
-            <div class="slogan">LYJ Bank</div>
+            <div style="padding-top:6px">
+                <img id="icon" src="./assests/images/bank.png" alt="LJY Bank">
+                <div class="slogan" style="position:relative; bottom:5px">LYJ Bank<span id="sub-title">Balance</span></div>
+            </div>
         </div>
         <div class="jumbotron">
-            <h1 id="bigtitle">Do your inquriy conveniently!</h1>
+            <h1 id="bigtitle">Do your inquiry conveniently!</h1>
             <p id="words">Just input your accountID, then you will see your balance directly.</p>
         </div>
         <div class="input-group" id="firstInput">
-            <span class="input-group-addon" id="basic-addon1">Input your account ID</span>
+            <span class="input-group-addon" id="basic-addon1">account ID</span>
             <input type="text" class="form-control" placeholder="accountID" aria-describedby="basic-addon1">
         </div>
+
         <!-- Inquiry button -->
-        <button class="btn btn-success" type="submit" id="accept">Inquriy</button>
+        <button class="btn btn-success" type="submit" id="inquiry">Inquriy</button>
+
+        <!-- 查询余额弹出框 -->
+        <div class="alert alert-info" role="alert" id="my-info">
+            <div id="show-balance">Dear customer, your current balance is: </div>
+        </div>
+
+        <!-- 查询失败提示框 -->
+        <div class="alert alert-danger" role="alert" id="my-info1">
+            <div>Sorry, fail to inquiry your balance,</div>
+            <div>your account may not exist.</div>
+        </div>
+
         <script src="https://cdn.bootcdn.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script src="./Bank-js/jquery.cookie-1.4.1.min.js"></script>
+        <!-- <script src="./Bank-js/dummy-cookie.js"></script> -->
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./Bank-js/thirdPage.js"></script>
     </body>
 </html>

@@ -5,11 +5,11 @@
         <title>LJY Bank</title>
         <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./assets/otherPages.css">
+        <link rel="stylesheet" type="text/css" href="./assests/otherPages.css">
         <style>
             body
             {
-                background-image:url('./assets/images/bacgrd3.png');
+                background-image:url('./assests/images/bacgrd3.png');
                 background-repeat:no-repeat;
                 background-attachment:fixed;
                 background-position: 450px 90px;
@@ -19,25 +19,69 @@
     </head>
     <body>
         <div class="firstLine">
-            <img id="icon" src="./assets/images/bank.png" alt="LJY Bank">
-            <div class="slogan">LYJ Bank</div>
+            <div style="padding-top:6px">
+                <img id="icon" src="./assests/images/bank.png" alt="LJY Bank">
+                <div class="slogan" style="position:relative; bottom:5px">LYJ Bank<span id="sub-title">Transfer</span></div>
+            </div>
         </div>
         <h1 id="title">Transfer your money to another account</h1>
         <div class="input-group" id="firstInput">
-            <span class="input-group-addon" id="basic-addon1">Input source accountID</span>
-            <input type="text" class="form-control" placeholder="source accountID" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">source accountID</span>
+            <input type="text" class="form-control" placeholder="source accountID" aria-describedby="basic-addon1" id="source-account">
         </div>
         <div class="input-group" id="firstInput">
-            <span class="input-group-addon" id="basic-addon1">Input target account ID</span>
-            <input type="text" class="form-control" placeholder="target accountID" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">target account ID</span>
+            <input type="text" class="form-control" placeholder="target accountID" aria-describedby="basic-addon1" id="target-account">
         </div>
         <div class="input-group" id="firstInput">
             <span class="input-group-addon" id="basic-addon1">Money</span>
-            <input type="text" class="form-control" placeholder="amount" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="amount" aria-describedby="basic-addon1" id="money">
         </div>
-        <button class="btn btn-success" type="submit" id="transfer">Transfer</button>
+        <button class="btn btn-success" type="submit" id="transfer" data-toggle="modal" data-target="#myModal">Transfer</button>
+
+        <!-- 转账完成后余额提示信息 -->
+        <div class="alert alert-info" role="alert" id="my-info">
+            <div>Dear customer, after your transfer,</div>
+            <div id="show-balance">your current balance is: </div>
+        </div>
+
+        <!-- 转账失败后提示信息弹出 -->
+        <div class="alert alert-danger" role="alert" id="my-info1">
+            <div>Sorry, fail to transfer!</div>
+            <div id="failText">Your balance of your current account is not enough.</div>
+        </div>
+
+        <!-- 收款账号不存在提示信息 -->
+        <div class="alert alert-danger" role="alert" id="my-info2">
+            <div>Sorry, fail to transfer!</div>
+            <div>The target account does not exist!</div>
+        </div>
+
+        <!-- 确认是否转账的模态对话框 -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Are you sure to transfer your money?</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>If you really decide to transfer, click the Yes button&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
         <script src="https://cdn.bootcdn.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script src="./Bank-js/jquery.cookie-1.4.1.min.js"></script>
+        <!-- <script src="./Bank-js/dummy-cookie.js"></script> -->
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./Bank-js/fifthPage.js"></script>
     </body>
 </html>

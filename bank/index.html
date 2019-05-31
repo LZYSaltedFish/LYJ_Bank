@@ -5,85 +5,138 @@
         <title>LJY Bank</title>
         <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./assets/firstPage.css">
+        <link rel="stylesheet" type="text/css" href="./assests/firstPage.css">
     </head>
     <body>
         <a class="btn btn-success" id="create" href="secondPage.html" role="button" target="_blank">Create an account</a>
+        <!-- Single button -->
+        <div class="btn-group" id="customer">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="username">Action</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#" id="logout-link"><img id="logout" src="./assests/images/dengchu.png">log out</a></li>
+            </ul>
+        </div>
         <div class="firstLine">
-                <img id="icon" src="./assets/images/bank.png" alt="LJY Bank">
-                <div class="slogan">LYJ Bank</div>
+            <div style="padding-top:6px">
+                <img id="icon" src="./assests/images/bank.png" alt="LJY Bank">
+                <div class="slogan" style="position:relative; bottom:5px">LYJ Bank</div>
+            </div>
         </div>
         <h1 id="title">Banking Application</h1>
-        <img id="icon1" src="./assets/images/beautifulbank.png" alt="This is a beautiful picture.">
+        <img id="icon1" src="./assests/images/beautifulbank.png" alt="This is a beautiful picture.">
         <div class="demo">
             <div class="demo1">If you want to manage your accounts,</div>   
             <div class="demo2">as long as you can surf on the internet,</div>
             <div class="demo3">our site will be your best choice.</div>
             <div class="demo4"> And your privacy will be absolutely safe.</div>
         </div>
-       <!-- Single button -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose a customerID <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">233333</a></li>
-                <li><a href="#">666666</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">none</a></li>
-            </ul>
+
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="log-in">Log in</button>
+
+        <!-- 密码输入错误后弹出提示 -->
+        <div class="alert alert-danger" role="alert" id="my-info1">
+            <div>Sorry! Fail to log in!</div>
+            <div>CustomerID or password wrong!</div>
         </div>
+
+
+        <!-- Single button -->
+        <!-- <div id="account-select"> -->
+            <!-- <div class="btn-group"> -->
+                <!-- <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                    <!-- Choose a customerID <span class="caret"></span> -->
+                <!-- </button> -->
+                <!-- <ul class="dropdown-menu"> -->
+                    <!-- <li><a href="#" id="first-customer">233333</a></li> -->
+                    <!-- <li><a href="#" id="second-customer">666666</a></li> -->
+                <!-- </ul> -->
+            <!-- </div> -->
+        <!-- </div> -->
+
         <div class="picture">
-            <div class="picture1">
+            <div class="picture1" id="my-picture">
                 <a href="thirdPage.html" target="_blank" style="text-decoration:none; 
-                background: url(./assets/images/zhanghuyue.png) left center no-repeat;
+                background: url(./assests/images/zhanghuyue.png) left center no-repeat;
                 background-size: 50px 50px;
                 display: inline-block;
                 height: 50px;
                 padding-left: 58px;">
                     <span class="tag">Banlance</span>
                 </a>
-            </div><div class="picture2">
+            </div><div class="picture2" id="my-picture">
                 <a href="fourthPage.html" target="_blank" style="text-decoration:none; 
-                background: url(./assets/images/cunqian.png) left center no-repeat;
+                background: url(./assests/images/cunqian.png) left center no-repeat;
                 background-size: 50px 50px;
                 display: inline-block;
                 height: 50px;
                 padding-left: 50px;">
-                    <span class="tag">Set Money</span>
+                    <span class="tag">Withdraw / Deposit</span>
                 </a>
-            </div><div class="picture3">
+            </div><div class="picture3" id="my-picture">
                 <a href="fifthPage.html" target="_blank" style="text-decoration:none;
-                background: url(./assets/images/zhuanzhang.png) left center no-repeat;
+                background: url(./assests/images/zhuanzhang.png) left center no-repeat;
                 background-size: 50px 50px;
                 display: inline-block;
                 height: 50px;
-                padding-left: 58px;">
+                padding-left: 58px;"> 
                     <span class="tag">Transfer</span>
                 </a>
-            </div><div class="picture4">
+            </div><div class="picture4" id="my-picture">
                 <a href="sixthPage.html" target="_blank" style="text-decoration:none;
-                background: url(./assets/images/zhangdan.png) left center no-repeat;
+                background: url(./assests/images/zhangdan.png) left center no-repeat;
                 background-size: 50px 50px;
                 display: inline-block;
                 height: 50px;
                 padding-left: 50px;"> 
-                    <span class="tag">Services</span>
+                    <span class="tag">My Services</span>
                 </a>
-            </div><div class="picture5">
+            </div><div class="picture5" id="my-picture">
                  <a href="seventhPage.html" target="_blank" style="text-decoration:none;
-                 background: url(./assets/images/guanli.png) left center no-repeat;
+                 background: url(./assests/images/guanli.png) left center no-repeat;
                  background-size: 50px 50px;
                  display: inline-block;
                  height: 50px;
                  padding-left: 50px;">
-                    <span class="tag">Change Services</span>
+                    <span class="tag">Buy Service</span>
                 </a>
             </div>
         </div>
+
+
+        <!-- 点击log in后弹出的模态对话框 -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Input your customerID and password to log in.</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group" id="input-id">
+                            <span class="input-group-addon" id="basic-addon1">customerID</span>
+                            <input type="text" class="form-control" placeholder="Input your customerID here" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group" id="input-password">
+                            <span class="input-group-addon" id="basic-addon1">password</span>
+                            <input type="password" class="form-control" placeholder="Input your password here" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
         <script src="https://cdn.bootcdn.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script src="./Bank-js/jquery.cookie-1.4.1.min.js"></script>
+        <!-- <script src="./Bank-js/dummy-cookie.js"></script> -->
+
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
+        <script src="./Bank-js/index.js"></script>
     </body>
 </html>

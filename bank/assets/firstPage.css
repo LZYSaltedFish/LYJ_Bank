@@ -61,7 +61,7 @@
 
 .picture{
   margin-left: 40px;
-  margin-top: 280px;
+  margin-top: 170px;
 }
 
 .picture1,.picture2,.picture3,.picture4,.picture5{
@@ -88,3 +88,62 @@
   margin-top: 10px;
 }
 
+#customer{
+  float: right;
+  margin-right: 40px;
+  margin-top: 10px;
+}
+
+.my-hidden{
+  visibility: hidden;
+}
+
+#logout{
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+#my-picture{
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+#my-picture:hover{
+  background-color: #e7e7e7;
+}
+
+#log-in{
+  margin-left: 40px;
+  margin-top: 40px;
+  width: 100px;
+}
+
+#input-password{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+#input-id{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.input-group-addon, .input-group-btn {
+  width: 28%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#my-info1{
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 20px;
+  height: 60px;
+}

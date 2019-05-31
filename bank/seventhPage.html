@@ -5,11 +5,11 @@
         <title>LJY Bank</title>
         <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./assets/otherPages.css">
+        <link rel="stylesheet" type="text/css" href="./assests/otherPages.css">
         <style>
             body
             {
-                background-image:url('./assets/images/bacgrd5.png');
+                background-image:url('./assests/images/bacgrd5.png');
                 background-repeat:no-repeat;
                 background-attachment:fixed;
                 background-position: 450px 150px;
@@ -17,35 +17,102 @@
             }
         </style>
     </head>
-    <body>
+    <body id="my-body">
         <div class="firstLine">
-            <img id="icon" src="./assets/images/bank.png" alt="LJY Bank">
-            <div class="slogan">LYJ Bank</div>
+            <div style="padding-top:6px">
+                <img id="icon" src="./assests/images/bank.png" alt="LJY Bank">
+                <div class="slogan" style="position:relative; bottom:5px">LYJ Bank<span id="sub-title">Buy Service</span></div>
+            </div>
         </div>
-        <h1 id="title">Change your financial services here</h1>
+        <h1 id="title">Select your financial service here</h1>
         <div class="input-group" id="firstInput">
-            <span class="input-group-addon" id="basic-addon1">Input your account ID</span>
-            <input type="text" class="form-control" placeholder="account ID" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">account ID</span>
+            <input type="text" class="form-control" placeholder="account ID" aria-describedby="basic-addon1" id="account">
         </div>
+
+        <div class="input-group" id="firstInput">
+            <span class="input-group-addon" id="basic-addon1">money</span>
+            <input type="text" class="form-control" placeholder="amount" aria-describedby="basic-addon1" id="money">
+        </div>
+
         <!-- Split button -->
         <div class="btn-group" id="my-btn1">
-            <button type="button" class="btn btn-primary">Financial services</button>
+            <button type="button" class="btn btn-primary" id="financial">Financial services</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">Demand deposit 0.3% interest rate</a></li>
-                <li><a href="#">Time deposit 1.35% interest rate</a></li>
+                <li><a href="#" id="my-debt">National debt</a></li>
+                <li><a href="#" id="my-deposit">Time deposit</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">none</a></li>
             </ul>
         </div>
-        <div  class="confirm">
-            <button class="btn btn-success" type="submit">Confirm</button>
+        <!-- 选择国债期限 -->
+        <div class="debt">
+            <div>Select your national debt term: </div>
+            <label class="radio-inline">
+                <input type="radio" name="national-debt" value="3" id="national-debt3"> 3
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="national-debt" value="5" id="national-debt5"> 5
+            </label>
         </div>
+
+        <!-- 输入定期存款期限 -->
+        <div class="input-group" id="thirdInput">
+            <span class="input-group-addon" id="basic-addon1">Deposit term</span>
+            <input type="text" class="form-control" placeholder="Please input an number between 1 and 20" aria-describedby="basic-addon1" id="input-term">
+        </div>
+
+        <div  class="confirm">
+            <button class="btn btn-success" type="submit" id="confirm" data-toggle="modal" data-target="#myModal">Confirm</button>
+        </div>
+
+        <!-- 选择理财产品后提示信息弹出 -->
+        <div class="alert alert-info" role="alert" id="my-info">
+            <div>Dear customer, you have successfully buy your service, here are some details: </div>
+            <div class="hidden" id="fia-service-tpl">
+                <div  class="fia-service-item">
+                    <span class="product-type">National debt</span>
+                    <span><span class="term">3</span> year(s)</span>
+                    <span class="amount">5000</span>
+                    <div>Estimated money: <span class="estimated-money"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 购买理财产品余额不足提示 -->
+        <div class="alert alert-danger" role="alert" id="my-info1">
+            <div>Sorry, your current balance is not enough!!!</div>
+        </div>
+
+        <!-- 确认是否要购买理财产品的模态对话框 -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Do you finally confirm your financial services?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>If you have already confirmed, click the Yes button&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
         <script src="https://cdn.bootcdn.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <script src="./Bank-js/jquery.cookie-1.4.1.min.js"></script>
+        <!-- <script src="./Bank-js/dummy-cookie.js"></script> -->
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./Bank-js/seventhPage.js"></script>
     </body>
 </html>

@@ -1,3 +1,7 @@
+.root{
+  height: 100%;
+}
+
 .firstLine{
   border-bottom: thin solid #E0E0E0;
 }
@@ -49,6 +53,21 @@
   display: block;
   margin-left: 40px;
   margin-top: 100px;
+  width: 100px;
+}
+
+#inquiry{
+  display: block;
+  margin-left: 40px;
+  margin-top: 50px;
+  width: 100px;
+}
+
+#create{
+  display: block;
+  margin-left: 40px;
+  margin-top: 50px;
+  width: 100px;
 }
 
 #bigtitle{
@@ -66,17 +85,23 @@
 
 #first-btn{
   margin-right: 10px;
+  width: 100px;
+}
+
+#second-btn{
+  width: 100px;
 }
 
 #transfer{
   margin-left: 40px;
-  margin-top: 15px;
+  margin-top: 45px;
+  width: 100px;
 }
 
 #service{
   margin-left: 40px;
   margin-top: 40px;
-
+  width: 100px;
 }
 
 .confirm{
@@ -84,7 +109,76 @@
   margin-top: 10px;
 }
 
+#confirm{
+  width: 100px;
+}
+
 #my-btn1{
   margin-left: 40px;
   margin-top: 20px;
+}
+
+.input-group-addon, .input-group-btn {
+  width: 28%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.jumbotron {
+  padding-top: 2px;
+  padding-bottom: 11px;
+}
+
+#sub-title{
+  font-size: 20px;
+  color: black;
+  margin-left: 20px;
+}
+
+#my-info{
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.my-hidden{
+  visibility: hidden;
+}
+
+.debt{
+  margin-left: 40px;
+  margin-top: 30px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+#thirdInput{
+  height: 34px;
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#delete{
+  margin-left: 40px;
+}
+#my-info1{
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+#my-info2{
+  width: 500px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.fia-service-item {
+  margin-bottom: 10px;
+  line-height: 35px;
+}
+.fia-service-item button {
+  float: right;
 }
