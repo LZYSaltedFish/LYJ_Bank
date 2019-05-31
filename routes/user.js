@@ -48,7 +48,7 @@ router.post('/login',
 /**
  * @api {post} /register 用户注册
  * @apiParam {String} username 用户名
- * @apiParam {String} password 密码
+ * @apiParam {String} password 密码（最少6位）
  * @apiGroup User
  * @apiUse User
  * @apiErrorExample {json} error

@@ -5,7 +5,7 @@ const { validate, checkAccount } = require('./middlewares')
 const { Errors } = require('../global')
 const Joi = require('@hapi/joi')
 /**
- * @api {get} /account?account_id=account_id 获取用户存款信息
+ * @api {get} /account?account_id:=account_id 获取用户存款信息
  * @apiParam {String} account_id 账户id
  * @apiGroup Account
  * @apiUse Account
