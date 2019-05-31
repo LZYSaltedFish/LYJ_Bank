@@ -28,18 +28,21 @@ $('#create').click(function(){
                 {
                     console.error(data.errmsg);
                     $('#my-info1').removeClass('hidden');
+                    $('#my-info').addClass('hidden');
                 }
                 else
                 {
                     $('#show-balance').text("Your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
+                    $('#my-info1').addClass('hidden');
                 }   
             },
             401: function(data){
                 console.error(data.errmsg);
                 $('#my-info1>div').text('Please log in first!');
                 $('#my-info1').removeClass('hidden');
-            }
+                $('#my-info').addClass('hidden');
+            },
         }
     })
 });

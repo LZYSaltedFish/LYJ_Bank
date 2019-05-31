@@ -33,21 +33,29 @@ $('#yes').click(function(){
                     console.error(data.errmsg);
                     $('#my-info1').removeClass('hidden');
                     $('#failText').text('Your balance of your current account is not enough.');
+                    $('#my-info').addClass('hidden');
+                    $('#my-info2').addClass('hidden');
                 }
                 else if(data.errcode === 3)
                 {
                     console.error(data.errmsg);
                     $('#my-info2').removeClass('hidden');
+                    $('#my-info').addClass('hidden');
+                    $('#my-info1').addClass('hidden');
                 }
                 else
                 {
                     $('#show-balance').text("your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
+                    $('#my-info1').addClass('hidden');
+                    $('#my-info2').addClass('hidden');
                 }
             },
             400: function(data){
                 $('#my-info1').removeClass('hidden');
                 $('#failText').text('Wrong input!!!');
+                $('#my-info').addClass('hidden');
+                $('#my-info2').addClass('hidden');
             },
             401: function(data)
             {
@@ -55,6 +63,8 @@ $('#yes').click(function(){
                 $('#word1').addClass('hidden');
                 $('#failText').text('Please log in first!!');
                 $('#my-info1').removeClass('hidden');
+                $('#my-info').addClass('hidden');
+                $('#my-info2').addClass('hidden');
             }
         }
     })

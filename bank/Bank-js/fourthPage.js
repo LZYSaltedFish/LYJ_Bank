@@ -32,6 +32,7 @@ $('#first-btn').click(function(){
                 {
                     $('#show-balance').text("your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
+                    $('#my-info1').addClass('hidden');
                 }
             },
             401: function(data){
@@ -39,6 +40,7 @@ $('#first-btn').click(function(){
                 $('#word1').addClass('hidden');
                 $('#word2').text('Please log in first!!');
                 $('#my-info1').removeClass('hidden');
+                $('#my-info').addClass('hidden');
             }
         }
     })
@@ -68,11 +70,13 @@ $('#second-btn').click(function(){
                 {
                     console.error(data.errmsg);
                     $('#my-info1').removeClass('hidden');
+                    $('#my-info').addClass('hidden');
                 }
                 else
                 {
                     $('#show-balance').text("your current balance is: " + data.balance);
                     $('#my-info').removeClass('hidden');
+                    $('#my-info1').addClass('hidden');
                 }
             },
             401: function(data)
@@ -81,6 +85,7 @@ $('#second-btn').click(function(){
                 $('#word1').addClass('hidden');
                 $('#word2').text('Please log in first!!');
                 $('#my-info1').removeClass('hidden');
+                $('#my-info').addClass('hidden');
             }
         }
     })
