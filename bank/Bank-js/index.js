@@ -80,10 +80,9 @@ $('#register-confirm').click(function(){
                     if (data.errcode)
                     {
                         console.error('login failed');
-                        $('#word1').addClass('my-hidden');
-                        $('#word2').text('This account has already existed!');
-                        $('#my-info1').removeClass('my-hidden');  //错误信息出现
                         $('#customer').addClass('my-hidden');     //用户信息按钮隐藏
+                        var node1 = $('#input-password1');
+                        node1.after('<div class="alert alert-danger" role="alert" id="my-info1">This customer has already existed!<div>');
                     }
                     else
                     {
@@ -95,6 +94,7 @@ $('#register-confirm').click(function(){
                         var jqxhr = jqXHR.getResponseHeader("Authorization");
                         $.cookie('authorization', jqxhr);
                         $.cookie('username', customerID);
+                        $('#myModal1').modal('hide');
                     }
                     
                 }

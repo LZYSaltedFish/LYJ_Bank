@@ -79,6 +79,11 @@ $('#yes').click(function(){
                 console.error(data.errmsg);
                 $('#my-info1>div').text('Please log in first!!');
                 $('#my-info1').removeClass('hidden');
+            },
+            400: function(data){
+                console.error(data.errmsg);
+                $('#my-info1>div').text('Please enter as required!!!');
+                $('#my-info1').removeClass('hidden');
             }
         }
     })
